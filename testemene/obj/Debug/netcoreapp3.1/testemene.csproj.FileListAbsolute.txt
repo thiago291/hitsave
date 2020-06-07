@@ -1,0 +1,13 @@
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.exe
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.deps.json
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.runtimeconfig.json
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.runtimeconfig.dev.json
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.dll
+C:\Users\thiag\source\repos\testemene\bin\Debug\netcoreapp3.1\testemene.pdb
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.csprojAssemblyReference.cache
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.csproj.CoreCompileInputs.cache
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.AssemblyInfoInputs.cache
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.AssemblyInfo.cs
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.dll
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.pdb
+C:\Users\thiag\source\repos\testemene\obj\Debug\netcoreapp3.1\testemene.genruntimeconfig.cache

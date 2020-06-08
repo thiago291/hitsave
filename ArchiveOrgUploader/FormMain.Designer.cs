@@ -1,4 +1,4 @@
-﻿namespace ArchiveOrgUploader
+namespace ArchiveOrgUploader
 {
     partial class FormMain
     {
@@ -80,6 +80,7 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonAddBatch = new System.Windows.Forms.Button();
             this.listBatches = new System.Windows.Forms.ListBox();
+            this.labelUpload = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericBitDepth)).BeginInit();
@@ -670,17 +671,27 @@
             // listBatches
             // 
             this.listBatches.FormattingEnabled = true;
-            this.listBatches.Location = new System.Drawing.Point(208, 546);
+            this.listBatches.Location = new System.Drawing.Point(400, 546);
             this.listBatches.Name = "listBatches";
             this.listBatches.Size = new System.Drawing.Size(372, 95);
             this.listBatches.TabIndex = 4;
-            this.listBatches.SelectedIndexChanged += new System.EventHandler(this.listBatches_SelectedIndexChanged);
+            this.listBatches.Visible = false;
+            // 
+            // labelUpload
+            // 
+            this.labelUpload.AutoSize = true;
+            this.labelUpload.Location = new System.Drawing.Point(12, 576);
+            this.labelUpload.Name = "labelUpload";
+            this.labelUpload.Size = new System.Drawing.Size(225, 13);
+            this.labelUpload.TabIndex = 4;
+            this.labelUpload.Text = "There are currently 0 batches ready to upload.";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.labelUpload);
             this.Controls.Add(this.listBatches);
             this.Controls.Add(this.buttonAddBatch);
             this.Controls.Add(this.buttonReset);
@@ -766,6 +777,7 @@
         private System.Windows.Forms.ListBox listBatches;
         private System.Windows.Forms.ToolStripMenuItem valuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addDefaultValuesToolStripMenuItem;
+        private System.Windows.Forms.Label labelUpload;
     }
 }
 

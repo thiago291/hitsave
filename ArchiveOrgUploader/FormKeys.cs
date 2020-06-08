@@ -26,8 +26,6 @@ namespace ArchiveOrgUploader
                 Settings.Default["S3AccessKey"] = textS3Access.Text;
                 Settings.Default["S3SecretKey"] = textS3Secret.Text;
                 Settings.Default.Save();
-                //MessageBox.Show(Settings.Default["S3AccessKey"].ToString());
-                //MessageBox.Show(Settings.Default["S3SecretKey"].ToString());
                 MessageBox.Show("Keys sucessfully saved.");
                 Close();
             }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ArchiveOrgUploader.Properties;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Collections;
 
 namespace ArchiveOrgUploader
@@ -21,10 +22,9 @@ namespace ArchiveOrgUploader
         readonly List<Batch> _batch = new List<Batch>();
         
         int _dpi, _bitd, _year;
-        string _files, _languages;
-        string _scanner, _title, _edition, _system, _publisher, _serial, _region;
+        string _batchSerialize, _files, _languages, _scanner, _title, _edition, _system, _publisher, _serial, _region;
 
-        private void valueSaver()
+        private void valueSaver() //converts the user added values into a batch
         {
             _files = null;
             _languages = null;
@@ -51,6 +51,12 @@ namespace ArchiveOrgUploader
             _extras = checkExtras.Checked;
         }
 
+        private string batchCondenser(Batch b) //converts all batches into a single string
+        {
+            _batchSerialize += JsonSerializer.Serialize(b);
+            return _batchSerialize;
+        }
+
         private void buttonAddBatch_Click(object sender, EventArgs e)
         {
             listBatches.Items.Clear();
@@ -61,7 +67,7 @@ namespace ArchiveOrgUploader
                 Publisher = _publisher, Year = _year, Serial = _serial, 
                 Region = _region,Languages = _languages, Cover = _coverPackage, 
                 Media = _media, Manual = _manual, Extras = _extras});
-            listBatches.Items.AddRange(_batch.ToArray());
+            //listBatches.Items.AddRange(_batch.ToArray());
             labelUpload.Text = "There are currently " + _batch.Count + " batches ready to upload.";
         }
 
@@ -109,32 +115,14 @@ namespace ArchiveOrgUploader
 
         private void buttonUpload_Click(object sender, EventArgs e)
         {
-            _batch.ForEach(i => MessageBox.Show(i.Title));
             if ((Settings.Default["S3AccessKey"].ToString() == "")
                 || (Settings.Default["S3SecretKey"].ToString() == ""))
-                MessageBox.Show("Please put your Archive.org access keys under 'Keys > Add/Change keys...'");
+                MessageBox.Show("Please add your Archive.org access keys under 'Keys > Add/Change keys...'");
             else
             {
-                MessageBox.Show("files:" + _files
-                    + "\ns3access: " + Settings.Default["S3AccessKey"].ToString()
-                    + "\ns3secret: " + Settings.Default["S3SecretKey"].ToString()
-                    + "\ndpi: " + _dpi
-                    + "\nbit depth: " + _bitd
-                    + "\nscanner: " + _scanner
-                    + "\nraw: " + _raw
-                    + "\nicm: " + _icm
-                    + "\nq13: " + _q13
-                    + "\nedition: " + _edition
-                    + "\nsystem: " + _system
-                    + "\npublisher: " + _publisher
-                    + "\nyear: " + _year
-                    + "\nserial: " + _serial
-                    + "\nregion: " + _region
-                    + "\nlanguages: " + _languages
-                    + "\ncover package: " + _coverPackage
-                    + "\nmedia: " + _media
-                    + "\nmanual: " + _manual
-                    + "\nExtras: " + _extras);
+                _batchSerialize = null;
+                _batch.ForEach(b => batchCondenser(b));
+                MessageBox.Show(_batchSerialize);
             }
         }
 

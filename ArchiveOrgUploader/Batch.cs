@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ArchiveOrgUploader
 {
-    class FileInfo
+    class Batch
     {
-        public FileInfo()
-        {
-        }
         public string FilePath { get; set; }
         public int DPI { get; set; }
         public int BitDepth { get; set; }

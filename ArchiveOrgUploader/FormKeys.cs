@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -15,15 +15,9 @@ namespace ArchiveOrgUploader
 {
     public partial class FormKeys : Form
     {
-        public FormKeys()
-        {
-            InitializeComponent();
-        }
+        public FormKeys() => InitializeComponent();
 
-        private void linkKeys_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://archive.org/account/s3.php");
-        }
+        private void linkKeys_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start("https://archive.org/account/s3.php");
 
         private void buttonSave_Click(object sender, EventArgs e) //saves the keys into the user's default settings
         {
@@ -35,7 +29,7 @@ namespace ArchiveOrgUploader
                 //MessageBox.Show(Settings.Default["S3AccessKey"].ToString());
                 //MessageBox.Show(Settings.Default["S3SecretKey"].ToString());
                 MessageBox.Show("Keys sucessfully saved.");
-                this.Close();
+                Close();
             }
             else
                 MessageBox.Show("New key values can't be null.");

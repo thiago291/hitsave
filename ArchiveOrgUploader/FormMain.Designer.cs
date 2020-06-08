@@ -74,6 +74,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addChangeKeysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.valuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDefaultValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonAddBatch = new System.Windows.Forms.Button();
+            this.listBatches = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericBitDepth)).BeginInit();
@@ -112,6 +118,7 @@
             this.listFiles.FormattingEnabled = true;
             this.listFiles.Location = new System.Drawing.Point(6, 19);
             this.listFiles.Name = "listFiles";
+            this.listFiles.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listFiles.Size = new System.Drawing.Size(372, 160);
             this.listFiles.TabIndex = 3;
             // 
@@ -559,7 +566,7 @@
             // 
             this.groupBox5.Controls.Add(this.progressBar1);
             this.groupBox5.Controls.Add(this.buttonUpload);
-            this.groupBox5.Location = new System.Drawing.Point(12, 440);
+            this.groupBox5.Location = new System.Drawing.Point(12, 647);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(760, 102);
             this.groupBox5.TabIndex = 7;
@@ -580,7 +587,7 @@
             this.buttonUpload.Name = "buttonUpload";
             this.buttonUpload.Size = new System.Drawing.Size(748, 42);
             this.buttonUpload.TabIndex = 4;
-            this.buttonUpload.Text = "Upload";
+            this.buttonUpload.Text = "Upload all batches";
             this.buttonUpload.UseVisualStyleBackColor = true;
             this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
             // 
@@ -593,7 +600,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.valuesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -611,15 +619,72 @@
             // addChangeKeysToolStripMenuItem
             // 
             this.addChangeKeysToolStripMenuItem.Name = "addChangeKeysToolStripMenuItem";
-            this.addChangeKeysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addChangeKeysToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.addChangeKeysToolStripMenuItem.Text = "Add/Change keys...";
             this.addChangeKeysToolStripMenuItem.Click += new System.EventHandler(this.addChangeKeysToolStripMenuItem_Click);
+            // 
+            // valuesToolStripMenuItem
+            // 
+            this.valuesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDefaultValuesToolStripMenuItem});
+            this.valuesToolStripMenuItem.Name = "valuesToolStripMenuItem";
+            this.valuesToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.valuesToolStripMenuItem.Text = "Values";
+            // 
+            // addDefaultValuesToolStripMenuItem
+            // 
+            this.addDefaultValuesToolStripMenuItem.Name = "addDefaultValuesToolStripMenuItem";
+            this.addDefaultValuesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addDefaultValuesToolStripMenuItem.Text = "Add default values";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(412, 440);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(360, 23);
+            this.buttonClear.TabIndex = 10;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(12, 440);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(360, 23);
+            this.buttonReset.TabIndex = 11;
+            this.buttonReset.Text = "Reset Values to Default";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddBatch
+            // 
+            this.buttonAddBatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddBatch.Location = new System.Drawing.Point(12, 498);
+            this.buttonAddBatch.Name = "buttonAddBatch";
+            this.buttonAddBatch.Size = new System.Drawing.Size(760, 42);
+            this.buttonAddBatch.TabIndex = 6;
+            this.buttonAddBatch.Text = "Add new batch";
+            this.buttonAddBatch.UseVisualStyleBackColor = true;
+            this.buttonAddBatch.Click += new System.EventHandler(this.buttonAddBatch_Click);
+            // 
+            // listBatches
+            // 
+            this.listBatches.FormattingEnabled = true;
+            this.listBatches.Location = new System.Drawing.Point(208, 546);
+            this.listBatches.Name = "listBatches";
+            this.listBatches.Size = new System.Drawing.Size(372, 95);
+            this.listBatches.TabIndex = 4;
+            this.listBatches.SelectedIndexChanged += new System.EventHandler(this.listBatches_SelectedIndexChanged);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 581);
+            this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.listBatches);
+            this.Controls.Add(this.buttonAddBatch);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -695,6 +760,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addChangeKeysToolStripMenuItem;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonAddBatch;
+        private System.Windows.Forms.ListBox listBatches;
+        private System.Windows.Forms.ToolStripMenuItem valuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addDefaultValuesToolStripMenuItem;
     }
 }
 

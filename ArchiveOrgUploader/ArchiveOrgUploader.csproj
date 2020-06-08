@@ -75,7 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileInfo.cs" />
+    <Compile Include="Batch.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

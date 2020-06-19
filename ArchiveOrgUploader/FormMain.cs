@@ -67,7 +67,6 @@ namespace ArchiveOrgUploader
                 Publisher = _publisher, Year = _year, Serial = _serial, 
                 Region = _region,Languages = _languages, Cover = _coverPackage, 
                 Media = _media, Manual = _manual, Extras = _extras});
-            //listBatches.Items.AddRange(_batch.ToArray());
             labelUpload.Text = "There are currently " + _batch.Count + " batches ready to upload.";
         }
 
